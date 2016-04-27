@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 MAINTAINER Cuteribs <ericfine1981@live.com>
 
 
-RUN apt-get update && apt-get install -y lib32z1 logrotate libpopt0 cron
+RUN apt-get update && apt-get install -y libssl1.0.0 lib32z1 logrotate libpopt0 cron
 ADD ./packages/xware.tar.gz /app/
 COPY ./packages/*.deb /app/
 COPY ./*.sh /app/
