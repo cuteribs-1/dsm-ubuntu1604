@@ -33,7 +33,6 @@ RUN rm /etc/init.d/shadowsocks-libev
 # Install polipo
 RUN dpkg -i /app/polipo_1.1.1-7_amd64.deb
 RUN rm /app/polipo_1.1.1-7_amd64.deb
-RUN rm /etc/init.d/privoxy
-
+RUN rm /etc/init.d/polipo
 
 WORKDIR /app
