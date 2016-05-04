@@ -7,5 +7,5 @@ if [ ! -f "$confFile" ]; then
 	echo forward-socks5 / $LINK_NAME:$LINK_PORT . >> $confFile
 fi
 
-/usr/sbin/privoxy $confFile
+/usr/sbin/privoxy --no-daemon $confFile
 /bin/bash
