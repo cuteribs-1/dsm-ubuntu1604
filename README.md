@@ -1,5 +1,5 @@
 ## Usage: ss-server
-docker run -d cuteribs/dsm-ubuntu15 ./ss-server.sh
+docker run -d cuteribs/dsm-ubuntu1604 ./ss-server.sh
 
 env
 	$SS_SERVER_PORT: server port
@@ -8,7 +8,7 @@ env
 
 	
 ## Usage: ss-local
-docker run -d cuteribs/dsm-ubuntu15 ./ss-local.sh
+docker run -d cuteribs/dsm-ubuntu1604 ./ss-local.sh
 
 evn
 	$SS_SERVER_HOST: server domain name or IP
@@ -19,7 +19,7 @@ evn
 
 	
 ## Usage: ss-tunnel
-docker run -d cuteribs/dsm-ubuntu15 ./ss-tunnel.sh
+docker run -d cuteribs/dsm-ubuntu1604 ./ss-tunnel.sh
 
 evn
 	$SS_SERVER_HOST: server domain name or IP
@@ -30,8 +30,8 @@ evn
 	$DNS_IP_PORT: target DNS IP:port
 
 
-## Usage: privoxy
-docker run -d cuteribs/dsm-ubuntu15 ./privoxy.sh
+## Usage: polipo
+docker run -d cuteribs/dsm-ubuntu1604 ./polipo.sh
 
 evn
 	$HTTP_PORT: http proxy port
@@ -40,6 +40,6 @@ evn
 
 
 ## Usage: xware
-docker run -d cuteribs/dsm-ubuntu15 ./xware.sh
+docker run -d cuteribs/dsm-ubuntu1604 ./xware.sh
 
 creates volume map for xware
