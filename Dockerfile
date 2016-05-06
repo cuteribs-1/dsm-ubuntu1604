@@ -3,8 +3,12 @@ FROM ubuntu:16.04
 
 MAINTAINER Cuteribs <ericfine1981@live.com>
 
+COPY ./sources.list /etc/apt/
+# RUN apt-get update
+# RUN apt-get install -y libc6 libc6-i386 lib32z1
+# RUN apt-get install -y libssl1.0.0
+# RUN apt-get install -y cron libpopt0 logrotate privoxy
 
-### RUN apt-get update && apt-get install -y lib32z1 logrotate libpopt0 cron
 ADD ./packages/xware.tar.gz /app/
 COPY ./packages/*.deb /app/
 COPY ./*.sh /app/
@@ -30,9 +34,15 @@ RUN rm /app/shadowsocks-libev_2.4.6-1_amd64.deb
 RUN rm /etc/init.d/shadowsocks-libev
 
 
-# Install polipo
-RUN dpkg -i /app/polipo_1.1.1-7_amd64.deb
-RUN rm /app/polipo_1.1.1-7_amd64.deb
-RUN rm /etc/init.d/polipo
+# Install privoxy
+RUN dpkg -i /app/cron_3.0pl1-128ubuntu2_amd64.deb
+RUN dpkg -i /app/libpopt0_1.16-10_amd64.deb
+RUN dpkg -i /app/logrotate_3.8.7-2ubuntu2_amd64.deb
+RUN dpkg -i /app/privoxy_3.0.24-1_amd64.deb
+RUN rm /app/cron_3.0pl1-128ubuntu2_amd64.deb
+RUN rm /app/libpopt0_1.16-10_amd64.deb
+RUN rm /app/logrotate_3.8.7-2ubuntu2_amd64.deb
+RUN rm /app/privoxy_3.0.24-1_amd64.deb
+RUN rm /etc/init.d/privoxy
 
 WORKDIR /app

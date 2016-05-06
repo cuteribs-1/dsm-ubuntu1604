@@ -30,8 +30,8 @@ evn
 	$DNS_IP_PORT: target DNS IP:port
 
 
-## Usage: polipo
-docker run -d cuteribs/dsm-ubuntu1604 ./polipo.sh
+## Usage: privoxy
+docker run -d cuteribs/dsm-ubuntu1604 ./privoxy.sh
 
 evn
 	$HTTP_PORT: http proxy port
