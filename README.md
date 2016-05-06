@@ -10,7 +10,7 @@ env
 ## Usage: ss-local
 docker run -d cuteribs/dsm-ubuntu1604 ./ss-local.sh
 
-evn
+env
 	$SS_SERVER_HOST: server domain name or IP
 	$SS_SERVER_PORT: server port
 	$SS_LOCAL_PORT: local port
@@ -21,7 +21,7 @@ evn
 ## Usage: ss-tunnel
 docker run -d cuteribs/dsm-ubuntu1604 ./ss-tunnel.sh
 
-evn
+env
 	$SS_SERVER_HOST: server domain name or IP
 	$SS_SERVER_PORT: server port
 	$SS_LOCAL_PORT: local port
@@ -33,7 +33,7 @@ evn
 ## Usage: privoxy
 docker run -d cuteribs/dsm-ubuntu1604 ./privoxy.sh
 
-evn
+env
 	$HTTP_PORT: http proxy port
 	$LINK_NAME: socket proxy name of docker container link
 	$LINK_PORT: socket proxy port of docker container link
