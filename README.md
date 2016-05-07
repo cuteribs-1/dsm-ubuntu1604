@@ -16,6 +16,8 @@ env
 	$SS_LOCAL_PORT: local port
 	$SS_SERVER_METHOD: encrypt method
 	$SS_SERVER_PWD: password
+	$ENABLE_HTTP: forward socks5 to http
+	$HTTP_PORT: http proxy port
 
 	
 ## Usage: ss-tunnel
@@ -30,16 +32,6 @@ env
 	$DNS_IP_PORT: target DNS IP:port
 
 
-## Usage: privoxy
-docker run -d cuteribs/dsm-ubuntu1604 ./privoxy.sh
-
-env
-	$HTTP_PORT: http proxy port
-	$LINK_NAME: socket proxy name of docker container link
-	$LINK_PORT: socket proxy port of docker container link
-
 
 ## Usage: xware
-docker run -d cuteribs/dsm-ubuntu1604 ./xware.sh
-
-creates volume map for xware
+docker run -d -v /xunlei:/app/xunlei cuteribs/dsm-ubuntu1604 ./xware.sh
