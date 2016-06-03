@@ -14,6 +14,8 @@ if [ ! -f "$INSTALL_FLAG" ]; then
 	sed -i "s/SERVER_UUID/${SERVER_UUID}/g" $CONF
 	sed -i "s/SERVER_ALTER_ID/${SERVER_ALTER_ID}/g" $CONF
 	
+	mkdir /var/log/v2ray/
+	
 	touch $INSTALL_FLAG
 fi
 
