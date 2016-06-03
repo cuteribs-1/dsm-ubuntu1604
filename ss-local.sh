@@ -13,8 +13,8 @@ if [ $ENABLE_HTTP = "yes" ]; then
 	INSTALL_FLAG="/app/privoxy.installed"	
 	
 	if [ ! -f "$INSTALL_FLAG" ]; then
-		dpkg -i /app/cron_3.0pl1-128ubuntu2_amd64.deb
 		dpkg -i /app/libpopt0_1.16-10_amd64.deb
+		dpkg -i /app/cron_3.0pl1-128ubuntu2_amd64.deb
 		dpkg -i /app/logrotate_3.8.7-2ubuntu2_amd64.deb
 		dpkg -i /app/privoxy_3.0.24-1_amd64.deb
 		rm /etc/init.d/privoxy
@@ -26,7 +26,7 @@ if [ $ENABLE_HTTP = "yes" ]; then
 		touch $INSTALL_FLAG
 	fi
 	
-	/usr/sbin/privoxy $PRIVOXY_CONF
+	privoxy $PRIVOXY_CONF
 fi
 
 ss-local -s $SS_SERVER_HOST -p $SS_SERVER_PORT -b 0.0.0.0 -l $SS_LOCAL_PORT -m $SS_SERVER_METHOD -k $SS_SERVER_PWD -t 60 -u -A
