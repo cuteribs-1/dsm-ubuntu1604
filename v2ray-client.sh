@@ -1,12 +1,12 @@
 #!/bin/sh
 
-INSTALL_FLAG="/app/v2ray-client.installed"
+INSTALL_FLAG="/app/v2ray-client.installed"	
+CONF="/app/v2ray-client.json"
 
 if [ ! -f "$INSTALL_FLAG" ]; then
 	dpkg -i /app/daemon_0.6.4-1_amd64.deb
 	chmod +x /app/v2ray/v2ray
 	
-	CONF="/app/v2ray-client.json"
 	cp /app/v2ray/v2ray-client.json $CONF
 	sed -i "s/LOCAL_PORT/${LOCAL_PORT}/g" $CONF
 	sed -i "s/SERVER_ADDR/${SERVER_ADDR}/g" $CONF
