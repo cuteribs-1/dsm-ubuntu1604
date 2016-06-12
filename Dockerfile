@@ -8,6 +8,7 @@ RUN sed -i.bak 's/archive/cn\.archive/' /etc/apt/sources.list
 # Deploys files
 ADD ./packages/xware.tar.gz /app/
 ADD ./packages/v2ray.tar.gz /app/
+ADD ./packages/kcp.tar.gz /app/
 COPY ./packages/*.deb /app/
 COPY ./*.sh /app/
 RUN chmod +x /app/*.sh
