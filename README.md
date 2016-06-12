@@ -59,7 +59,7 @@ env
 
 
 ## Usage: kcp-server
-docker run -d --name kcp-server -p 39901:29900 -e KCP_PORT=":29900" -e TARGET_PORT=":38081" -e MODE="fast2" -e PASSKEY="cuteribs" cuteribs/dsm-ubuntu1604 ./kcp-server.sh
+docker run -d --name kcp-server -p 39901:29900 -e KCP_PORT=:29900 -e TARGET_PORT=:38081 -e MODE=fast2 -e PASSKEY=cuteribs cuteribs/dsm-ubuntu1604 ./kcp-server.sh
 
 env
 	$KCP_PORT: kcp server listen address (example: ":29900")
@@ -69,7 +69,7 @@ env
 
 	
 ## Usage: kcp-client
-docker run -d --name kcp-client -p 31080:12948 -e LOCAL_PORT=":12948" -e KCP_PORT="cuteribs.kcp:29900" -e MODE="fast2" -e PASSKEY="cuteribs" cuteribs/dsm-ubuntu1604 ./kcp-client.sh
+docker run -d --name kcp-client -p 31080:12948 -e LOCAL_PORT=:12948 -e KCP_PORT=cuteribs.kcp:29900 -e MODE=fast2 -e PASSKEY=cuteribs cuteribs/dsm-ubuntu1604 ./kcp-client.sh
 
 env
 	$LOCAL_PORT: local listen address (example: ":12948")
