@@ -68,6 +68,8 @@ env
 	$MTU: set MTU of UDP packets, suggest 'tracepath' to discover path mtu (default: 1400)
 	$SNDWND: set send window size (default: 2048)
 	$RCVWND: set receive window size (default: 2048)
+	$CRYPT: methods for encryption: aes, tea, xor, none (default: "none")
+	$KEY: key for communcation, must be the same as kcptun server (default: "cuteribs")
 
 	
 ## Usage: kcp-client
@@ -79,7 +81,7 @@ env
 	$MODE: mode for communication: fast3, fast2, fast, normal (default: "fast2")
 	$SNDWND: set send window size (default: 128)
 	$RCVWND: set receive window size (default: 2048)
-
-
-
+	$CRYPT: methods for encryption: aes, tea, xor, none (default: "none")
+	$KEY: key for communcation, must be the same as kcptun server (default: "cuteribs")
+	
 	

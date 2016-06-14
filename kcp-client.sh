@@ -11,11 +11,11 @@ if [ ! $LOCAL_PORT ]; then
 	LOCAL_PORT = ":12948"
 fi
 
-if [! $KCP_PORT ]; then
+if [ ! $KCP_PORT ]; then
 	KCP_PORT = "vps:29900"
 fi
 
-if [! $MODE ]; then
+if [ ! $MODE ]; then
 	MODE = "fast2"
 fi
 
@@ -31,4 +31,12 @@ if [ ! $RCVWND ]; then
 	RCVWND = 1024
 fi
 
-/app/kcp/kcp-client -l $LOCAL_PORT -r $KCP_PORT -mode $MODE -mtu $MTU -sndwnd $SNDWND -rcvwnd $RCVWND -crypt none
+if [ ! $CRYPT ]; then
+	CRYPT = "none"
+fi
+
+if [ ! $KEY ]; then
+	KEY = "cuteribs"
+fi
+
+/app/kcp/kcp-client -l $LOCAL_PORT -r $KCP_PORT -mode $MODE -mtu $MTU -sndwnd $SNDWND -rcvwnd $RCVWND -crypt $CRYPT -key $KEY
