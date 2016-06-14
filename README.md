@@ -59,23 +59,26 @@ env
 
 
 ## Usage: kcp-server
-docker run -d --name kcp-server -p 39901:29900 -e KCP_PORT=:29900 -e TARGET_PORT=:38081 -e MODE=fast2 -e PASSKEY=cuteribs cuteribs/dsm-ubuntu1604 ./kcp-server.sh
+docker run -d --name kcp-server -p 39901:29900 -e KCP_PORT=:29900 -e TARGET_PORT=:38081 -e MODE=fast2 -e MTU=1400 -e SNDWND=2048 -e RCVWND=2048 cuteribs/dsm-ubuntu1604 ./kcp-server.sh
 
 env
-	$KCP_PORT: kcp server listen address (example: ":29900")
-	$TARGET_PORT: target server address (example: "127.0.0.1:12948")
-	$MODE: mode for communication: fast3, fast2, fast, normal
-	$PASSKEY: key for communcation, must be the same as kcptun client (example: "cuteribs")
+	$KCP_PORT: kcp server listen address (default: ":29900")
+	$TARGET_PORT: target server address (default: "127.0.0.1:12948")
+	$MODE: mode for communication: fast3, fast2, fast, normal (default: "fast2")
+	$MTU: set MTU of UDP packets, suggest 'tracepath' to discover path mtu (default: 1400)
+	$SNDWND: set send window size (default: 2048)
+	$RCVWND: set receive window size (default: 2048)
 
 	
 ## Usage: kcp-client
-docker run -d --name kcp-client -p 31080:12948 -e LOCAL_PORT=:12948 -e KCP_PORT=cuteribs.kcp:29900 -e MODE=fast2 -e PASSKEY=cuteribs cuteribs/dsm-ubuntu1604 ./kcp-client.sh
+docker run -d --name kcp-client -p 31080:12948 -e LOCAL_PORT=:12948 -e KCP_PORT=cuteribs.kcp:29900 -e MODE=fast2 -e MTU=1400 -e SNDWND=2048 -e RCVWND=2048 cuteribs/dsm-ubuntu1604 ./kcp-client.sh
 
 env
-	$LOCAL_PORT: local listen address (example: ":12948")
-	$KCP_PORT: kcp server address (example: "cuteribs.kcp:29900")
-	$MODE: mode for communication: fast3, fast2, fast, normal
-	$PASSKEY: key for communcation, must be the same as kcptun server (example: "cuteribs")
+	$LOCAL_PORT: local listen address (default: ":12948")
+	$KCP_PORT: kcp server address (default: "vps:29900")
+	$MODE: mode for communication: fast3, fast2, fast, normal (default: "fast2")
+	$SNDWND: set send window size (default: 128)
+	$RCVWND: set receive window size (default: 2048)
 
 
 
