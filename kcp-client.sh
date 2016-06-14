@@ -7,20 +7,20 @@ if [ ! -f "$INSTALL_FLAG" ]; then
 	touch $INSTALL_FLAG
 fi
 
-${LOCAL_PORT=':12948'}
+echo ${LOCAL_PORT=':12948'}
 
-${KCP_PORT='vps:29900'}
+echo ${KCP_PORT='vps:29900'}
 
-${MODE='fast2'}
+echo ${MODE='fast2'}
 	
-${MTU=1400}
+echo ${MTU=1400}
 	
-${SNDWND=1024}
+echo ${SNDWND=1024}
 	
-${RCVWND=1024}
+echo ${RCVWND=1024}
 	
-${CRYPT='none'}
+echo ${CRYPT='none'}
 	
-${KEY='cuteribs'}
+echo ${KEY='cuteribs'}
 
 /app/kcp/kcp-client -l $LOCAL_PORT -r $KCP_PORT -mode $MODE -mtu $MTU -sndwnd $SNDWND -rcvwnd $RCVWND -crypt $CRYPT -key $KEY
