@@ -73,7 +73,7 @@ env
 
 	
 ## Usage: kcp-client
-docker run -d --name kcp-client -p 31080:12948 -e LOCAL_PORT=:12948 -e KCP_PORT=cuteribs.kcp:29900 -e MODE=fast2 -e MTU=1400 -e SNDWND=2048 -e RCVWND=2048 cuteribs/dsm-ubuntu1604 ./kcp-client.sh
+docker run -d --name kcp-client -p 31080:12948 -e LOCAL_PORT=:12948 -e KCP_PORT=cuteribs.kcp:29900 -e MODE=fast2 -e MTU=1400 -e SNDWND=2048 -e RCVWND=2048 -e CONN=4 cuteribs/dsm-ubuntu1604 ./kcp-client.sh
 
 env
 	$LOCAL_PORT: local listen address (default: ":12948")
@@ -83,5 +83,6 @@ env
 	$RCVWND: set receive window size (default: 2048)
 	$CRYPT: methods for encryption: aes, tea, xor, none (default: "none")
 	$KEY: key for communcation, must be the same as kcptun server (default: "cuteribs")
+	$CONN: establish N physical connections as specified by 'conn' to server (default: 1)
 	
 	

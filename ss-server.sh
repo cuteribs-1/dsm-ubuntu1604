@@ -3,8 +3,8 @@
 INSTALL_FLAG="/app/ss-server.installed"
 
 if [ ! -f "$INSTALL_FLAG" ]; then
-	dpkg -i /app/libmbedcrypto0_2.2.1-2_amd64.deb
-	dpkg -i /app/shadowsocks-libev_2.4.6-1_amd64.deb
+	dpkg -i /app/libmbedcrypto0_*.deb
+	dpkg -i /app/shadowsocks-libev_*.deb
 	rm /etc/init.d/shadowsocks-libev
 	touch $INSTALL_FLAG
 fi

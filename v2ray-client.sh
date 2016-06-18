@@ -4,7 +4,7 @@ INSTALL_FLAG="/app/v2ray-client.installed"
 CONF="/app/v2ray-client.json"
 
 if [ ! -f "$INSTALL_FLAG" ]; then
-	dpkg -i /app/daemon_0.6.4-1_amd64.deb
+	dpkg -i /app/daemon_*.deb
 	chmod +x /app/v2ray/v2ray
 	
 	cp /app/v2ray/v2ray-client.json $CONF
@@ -23,10 +23,10 @@ if [ $ENABLE_HTTP = "yes" ]; then
 	INSTALL_FLAG="/app/privoxy.installed"	
 	
 	if [ ! -f "$INSTALL_FLAG" ]; then
-		dpkg -i /app/libpopt0_1.16-10_amd64.deb
-		dpkg -i /app/cron_3.0pl1-128ubuntu2_amd64.deb
-		dpkg -i /app/logrotate_3.8.7-2ubuntu2_amd64.deb
-		dpkg -i /app/privoxy_3.0.24-1_amd64.deb
+		dpkg -i /app/libpopt0_*.deb
+		dpkg -i /app/cron_*.deb
+		dpkg -i /app/logrotate_*.deb
+		dpkg -i /app/privoxy_*.deb
 		rm /etc/init.d/privoxy
 
 		PRIVOXY_CONF="/app/privoxy.conf"

@@ -4,7 +4,7 @@ INSTALL_FLAG="/app/v2ray-server.installed"
 CONF="/app/v2ray-server.json"
 
 if [ ! -f "$INSTALL_FLAG" ]; then
-	dpkg -i /app/daemon_0.6.4-1_amd64.deb
+	dpkg -i /app/daemon_*.deb
 	chmod +x /app/v2ray/v2ray	
 	
 	cp /app/v2ray/v2ray-server.json $CONF
