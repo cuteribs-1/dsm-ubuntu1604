@@ -36,28 +36,6 @@ env
 	$DNS_IP_PORT: target DNS IP:port
 
 
-## Usage: v2ray-server
-docker run -d --name v2ray-server -p 38090:8090 -e SERVER_PORT=8090 -e SERVER_UUID="e717f3cb-ed1f-40b5-b363-86e434615aed" -e SERVER_ALTER_ID="4" cuteribs/dsm-ubuntu1604 ./v2ray-server.sh
-
-env
-	$SERVER_PORT: server port
-	$SERVER_UUID: user ID
-	$SERVER_ALTER_ID: alter ID
-
-	
-## Usage: v2ray-client
-docker run -d --name v2ray-client -p 30086:10086 -p 38123:8123 -e LOCAL_PORT=10086 -e SERVER_ADDR="cuteribs.v2ray" -e SERVER_PORT=38090 -e SERVER_UUID="e717f3cb-ed1f-40b5-b363-86e434615aed" -e SERVER_ALTER_ID="4" -e ENABLE_HTTP="yes" -e HTTP_PORT=8123 cuteribs/dsm-ubuntu1604 ./v2ray-client.sh
-
-env
-	$LOCAL_PORT: local port
-	$SERVER_ADDR: server domain name or IP
-	$SERVER_PORT: server port
-	$SERVER_UUID: user ID
-	$SERVER_ALTER_ID: alter ID
-	$ENABLE_HTTP: forward socks5 to http
-	$HTTP_PORT: http proxy port
-
-
 ## Usage: kcp-server
 docker run -d --name kcp-server -p 39901:29900 -e KCP_PORT=:29900 -e TARGET_PORT=:38081 -e MODE=fast2 -e MTU=1400 -e SNDWND=2048 -e RCVWND=2048 cuteribs/dsm-ubuntu1604 ./kcp-server.sh
 
@@ -85,4 +63,11 @@ env
 	$KEY: key for communcation, must be the same as kcptun server (default: "cuteribs")
 	$CONN: establish N physical connections as specified by 'conn' to server (default: 1)
 	
+	
+## Usage: 3proxy
+docker run -d --name 3proxy -p 30080:1080 -e PORT=1080 cuteribs/dsm-ubuntu1604 ./3proxy.sh
+
+env
+	$PORT: local listen port (default: "1080")
+
 	
