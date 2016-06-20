@@ -4,7 +4,7 @@ INSTALL_FLAG="/app/3proxy.installed"
 CONF="/app/3proxy.conf"
 
 if [ ! -f "$INSTALL_FLAG" ]; then
-	chmod +x /app/3proxy/3proxy
+	chmod +x /app/3proxy
 	
 	echo ${PORT=1080}
 	echo "nscache 65536" > $CONF
@@ -16,4 +16,4 @@ if [ ! -f "$INSTALL_FLAG" ]; then
 	touch $INSTALL_FLAG
 fi
 
-/app/3proxy/3proxy $CONF
+/app/3proxy $CONF
