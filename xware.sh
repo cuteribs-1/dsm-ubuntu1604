@@ -10,5 +10,6 @@ if [ ! -f "$INSTALL_FLAG" ]; then
 	touch $INSTALL_FLAG
 fi
 
+sleep 1
 /app/xware/portal
 /bin/bash

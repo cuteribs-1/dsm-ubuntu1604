@@ -23,4 +23,5 @@ echo ${CRYPT='none'}
 	
 echo ${KEY='cuteribs'}
 
+sleep 1
 /app/kcp/kcp-server -l $KCP_PORT -t $TARGET_PORT -mode $MODE -mtu $MTU -sndwnd $SNDWND -rcvwnd $RCVWND -crypt $CRYPT -key $KEY

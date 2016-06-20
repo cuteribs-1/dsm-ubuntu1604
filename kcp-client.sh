@@ -25,4 +25,5 @@ echo ${KEY='cuteribs'}
 
 echo ${CONN=1}
 
+sleep 1
 /app/kcp/kcp-client -l $LOCAL_PORT -r $KCP_PORT -mode $MODE -mtu $MTU -sndwnd $SNDWND -rcvwnd $RCVWND -crypt $CRYPT -key $KEY -conn $CONN
