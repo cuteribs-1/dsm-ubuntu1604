@@ -26,6 +26,7 @@ if [ $ENABLE_HTTP = "yes" ]; then
 		touch $INSTALL_FLAG
 	fi
 	
+	sleep 1
 	privoxy $PRIVOXY_CONF
 fi
 
