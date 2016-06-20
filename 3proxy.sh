@@ -17,3 +17,4 @@ if [ ! -f "$INSTALL_FLAG" ]; then
 fi
 
 /app/3proxy $CONF
+/bin/bash
