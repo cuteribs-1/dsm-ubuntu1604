@@ -13,7 +13,7 @@ echo ${TARGET_PORT='127.0.0.1:12948'}
 
 echo ${MODE='fast2'}
 	
-echo ${MTU=1400}
+echo ${MTU=1350}
 	
 echo ${SNDWND=1024}
 	
