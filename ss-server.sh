@@ -11,9 +11,9 @@ fi
 
 echo ${SS_TIMEOUT=60}
 
-echo ${SS_UDP='-u'}
+echo ${SS_UDP="-u"}
 
-echo ${SS_OTA='-A'}
+echo ${SS_OTA=""}
 
 sleep 1
 ss-server -s 0.0.0.0 -p $SS_SERVER_PORT -m $SS_SERVER_METHOD -k $SS_SERVER_PWD -t $SS_TIMEOUT $SS_UDP $SS_OTA

@@ -23,11 +23,7 @@ echo ${CRYPT="aes"}
 	
 echo ${KEY="it's a secrect"}
 
-echo ${CONN=1}
-
 echo ${DSCP=0}
 
-echo ${EXPIRE=0}
-
 sleep 1
-/app/kcp/kcp-server -l $KCP_PORT -t $TARGET_PORT -mode $MODE -mtu $MTU -sndwnd $SNDWND -rcvwnd $RCVWND -crypt $CRYPT -key $KEY -conn $CONN -dscp $DSCP -autoexpire $EXPIRE
+/app/kcp/kcp-server -l $KCP_PORT -t $TARGET_PORT -mode $MODE -mtu $MTU -sndwnd $SNDWND -rcvwnd $RCVWND -crypt $CRYPT -key $KEY -dscp $DSCP

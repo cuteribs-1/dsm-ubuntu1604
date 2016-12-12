@@ -9,6 +9,9 @@ env
 	$SS_SERVER_PORT: server port
 	$SS_SERVER_METHOD: encrypt method
 	$SS_SERVER_PWD: password
+	$SS_TIMEOUT: socket timeout in seconds
+	$SS_UDP: enable udprelay mode (default: "-u")
+	$SS_OTA: enable onetime authentication (default: "", set to "-A" to enable it)
 
 	
 ## Usage: ss-local
@@ -20,20 +23,11 @@ env
 	$SS_LOCAL_PORT: local port
 	$SS_SERVER_METHOD: encrypt method
 	$SS_SERVER_PWD: password
+	$SS_TIMEOUT: socket timeout in seconds
+	$SS_UDP: enable udprelay mode (default: "-u")
+	$SS_OTA: enable onetime authentication (default: "", set to "-A" to enable it)
 	$ENABLE_HTTP: forward socks5 to http
 	$HTTP_PORT: http proxy port
-
-	
-## Usage: ss-tunnel
-docker run -d --name ss-tunnel -p 38053:8053 -e SS_SERVER_HOST="cuteribs.ss" -e SS_SERVER_PORT=8080 -e SS_SERVER_METHOD="rc4-md5" -e SS_SERVER_PWD="cuteribs" -e SS_LOCAL_PORT=8053 -e DNS_IP_PORT=8.8.8.8 cuteribs/dsm-ubuntu1604 ./ss-tunnel.sh
-
-env
-	$SS_SERVER_HOST: server domain name or IP
-	$SS_SERVER_PORT: server port
-	$SS_LOCAL_PORT: local port
-	$SS_SERVER_METHOD: encrypt method
-	$SS_SERVER_PWD: password
-	$DNS_IP_PORT: target DNS IP:port
 
 
 ## Usage: kcp-server
@@ -42,12 +36,13 @@ docker run -d --name kcp-server -p 39901:29900 -e KCP_PORT=:29900 -e TARGET_PORT
 env
 	$KCP_PORT: kcp server listen address (default: ":29900")
 	$TARGET_PORT: target server address (default: "127.0.0.1:12948")
-	$MODE: mode for communication: fast3, fast2, fast, normal (default: "fast2")
-	$MTU: set MTU of UDP packets, suggest 'tracepath' to discover path mtu (default: 1400)
-	$SNDWND: set send window size (default: 2048)
-	$RCVWND: set receive window size (default: 2048)
-	$CRYPT: methods for encryption: aes, tea, xor, none (default: "none")
-	$KEY: key for communcation, must be the same as kcptun server (default: "cuteribs")
+	$MODE: mode for communication: fast3, fast2, fast, normal (default: "fast")
+	$MTU: set MTU of UDP packets, suggest 'tracepath' to discover path mtu (default: 1350)
+	$SNDWND: set send window size (default: 1024)
+	$RCVWND: set receive window size (default: 1024)
+	$CRYPT: aes, aes-128, aes-192, salsa20, blowfish, twofish, cast5, 3des, tea, xtea, xor, none (default: "aes")
+	$KEY: key for communcation, must be the same as kcptun server (default: "it's a secrect")
+	$DSCP: set DSCP(6bit) (default: 0)
 
 	
 ## Usage: kcp-client
@@ -56,12 +51,14 @@ docker run -d --name kcp-client -p 31080:12948 -e LOCAL_PORT=:12948 -e KCP_PORT=
 env
 	$LOCAL_PORT: local listen address (default: ":12948")
 	$KCP_PORT: kcp server address (default: "vps:29900")
-	$MODE: mode for communication: fast3, fast2, fast, normal (default: "fast2")
+	$MODE: mode for communication: fast3, fast2, fast, normal (default: "fast")
 	$SNDWND: set send window size (default: 128)
 	$RCVWND: set receive window size (default: 2048)
-	$CRYPT: methods for encryption: aes, tea, xor, none (default: "none")
-	$KEY: key for communcation, must be the same as kcptun server (default: "cuteribs")
+	$CRYPT: aes, aes-128, aes-192, salsa20, blowfish, twofish, cast5, 3des, tea, xtea, xor, none (default: "aes")
+	$KEY: key for communcation, must be the same as kcptun server (default: "it's a secrect")
 	$CONN: establish N physical connections as specified by 'conn' to server (default: 1)
+	$DSCP: set DSCP(6bit) (default: 0)
+	$EXPIRE: set auto expiration time(in seconds) for a single UDP connection, 0 to disable (default: 0)
 	
 	
 ## Usage: 3proxy

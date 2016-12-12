@@ -32,9 +32,9 @@ fi
 
 echo ${SS_TIMEOUT=60}
 
-echo ${SS_UDP='-u'}
+echo ${SS_UDP="-u"}
 
-echo ${SS_OTA='-A'}
+echo ${SS_OTA=""}
 
 sleep 1
 ss-local -s $SS_SERVER_HOST -p $SS_SERVER_PORT -b 0.0.0.0 -l $SS_LOCAL_PORT -m $SS_SERVER_METHOD -k $SS_SERVER_PWD -t $SS_TIMEOUT $SS_UDP $SS_OTA
