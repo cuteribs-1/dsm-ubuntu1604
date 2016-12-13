@@ -2,7 +2,7 @@
 docker run -d --name xware1 -v /xunlei:/app/xunlei cuteribs/dsm-ubuntu1604 ./xware.sh
 
 
-## Usage: ss-server
+## Usage: ss-server ver. 2.5.6
 docker run -d --name ss-server -p 31080:8080 -e SS_SERVER_PORT=8080 -e SS_SERVER_METHOD="rc4-md5" -e SS_SERVER_PWD="cuteribs" cuteribs/dsm-ubuntu1604 ./ss-server.sh
 
 env
@@ -14,7 +14,7 @@ env
 	$SS_OTA: enable onetime authentication (default: "", set to "-A" to enable it)
 
 	
-## Usage: ss-local
+## Usage: ss-local ver. 2.5.6
 docker run -d --name ss-local -p 38338:8338 -p 38123:8123 -e SS_SERVER_HOST="cuteribs.ss" -e SS_SERVER_PORT=8080 -e SS_SERVER_METHOD="rc4-md5" -e SS_SERVER_PWD="cuteribs" -e SS_LOCAL_PORT=8338 -e ENABLE_HTTP="yes" -e HTTP_PORT=8123 cuteribs/dsm-ubuntu1604 ./ss-local.sh
 
 env
@@ -30,7 +30,7 @@ env
 	$HTTP_PORT: http proxy port
 
 
-## Usage: kcp-server
+## Usage: kcp-server ver. 20161207
 docker run -d --name kcp-server -p 39901:29900 -e KCP_PORT=:29900 -e TARGET_PORT=:38081 -e MODE=fast2 -e MTU=1400 -e SNDWND=2048 -e RCVWND=2048 cuteribs/dsm-ubuntu1604 ./kcp-server.sh
 
 env
@@ -45,7 +45,7 @@ env
 	$DSCP: set DSCP(6bit) (default: 0)
 
 	
-## Usage: kcp-client
+## Usage: kcp-client ver. 20161207
 docker run -d --name kcp-client -p 31080:12948 -e LOCAL_PORT=:12948 -e KCP_PORT=cuteribs.kcp:29900 -e MODE=fast2 -e MTU=1400 -e SNDWND=2048 -e RCVWND=2048 -e CONN=4 cuteribs/dsm-ubuntu1604 ./kcp-client.sh
 
 env
